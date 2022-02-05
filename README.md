@@ -2,6 +2,7 @@
 A 3D game engine but completely in rust/std/cargo.
 - based on godot 3d and unreal 4
 - technically platform independent given the no problems in the underlying dependencies. But optimised unsafe blocks for Quanta.
+- rn, just the backend. Can build a frontend in iced-rs that directly connects to the backend.
 
 ## Key features
 - make interactive 3D first person/3rd person games easily
