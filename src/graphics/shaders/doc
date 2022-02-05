@@ -1,2 +1,3 @@
 Frequently used shaders like colors, reflections, object transforms, perspective/orthographic views
 - and also API to load and bind a custom shader
+- vulkano_shaders already provides tools for shader loading, but not high level tools for game engine so this module will wrap around that
