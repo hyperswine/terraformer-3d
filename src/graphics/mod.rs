@@ -2,7 +2,6 @@ use crate::scene::Scene;
 
 // vulkano wrappers
 pub mod shaders;
-pub mod vulkan;
 
 fn create_window() {}
 
