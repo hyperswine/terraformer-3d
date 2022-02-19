@@ -6,7 +6,7 @@ trait Asset {
 
 struct Obj;
 
-struct Blend;
+pub struct Blend;
 
 impl Asset for Obj {
     fn use_resource(&self) {}
