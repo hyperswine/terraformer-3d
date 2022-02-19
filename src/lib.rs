@@ -1,7 +1,6 @@
 pub mod filesystem;
 pub mod graphics;
 pub mod math;
-pub mod physics;
 pub mod scene;
 
 // stores common things across game engine states

@@ -24,18 +24,4 @@ pub struct Model {
 pub struct Texture {
     // given by vulkan
     t_id: u64,
-
-}
-
-use crate::graphics::Drawable;
-use crate::graphics::shaders::Shader;
-
-impl Drawable for Model {
-    fn draw(&self, shader: Shader) {
-        shader.apply();
-    }
-
-    fn initialize(&self, scene: Scene) {
-        
-    }
 }
