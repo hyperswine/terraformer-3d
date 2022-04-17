@@ -2,6 +2,7 @@ pub mod filesystem;
 pub mod graphics;
 pub mod math;
 pub mod scene;
+pub mod game;
 
 // ----------
 // Terraformer3D Main
@@ -74,7 +75,6 @@ fn start_game() {
     }
 }
 
-
 // ----------
 // Cameras
 // ----------
@@ -87,7 +87,7 @@ struct MainCamera {}
 
 impl Camera3D for MainCamera {
     fn new(position: (f32, f32, f32)) -> Self {
-        Self{}
+        Self {}
     }
 }
 
