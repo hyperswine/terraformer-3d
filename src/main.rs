@@ -160,5 +160,3 @@ fn main() {
         wasm_bindgen_futures::spawn_local(run(event_loop, window));
     }
 }
-
-use iced::*;
