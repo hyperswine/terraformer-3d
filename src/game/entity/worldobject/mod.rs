@@ -1,4 +1,6 @@
-pub mod decoration;
+// ------------
+// WORLD OBJECT
+// ------------
 
 // an interactable worldobject
 pub struct WorldObject;
@@ -12,6 +14,12 @@ impl WorldObject {
         true
     }
 }
+
+pub mod decoration;
+
+// ------------
+// TEST
+// ------------
 
 #[test]
 fn test_worldobj_interaction() {
