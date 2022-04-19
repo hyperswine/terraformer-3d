@@ -1,4 +1,4 @@
-pub mod filesystem;
+pub mod assetloader;
 pub mod graphics;
 pub mod math;
 pub mod scene;

@@ -1,10 +1,18 @@
+// ----------
+// SCENE
+// ----------
+
 pub struct Scene;
 
-// a way to propagate transformation logic to subscenes/nodes
+// a way to propagate transformation and animation and mechanism logic to subscenes/nodes
 // i.e. solar system architecture
 pub struct SceneGraph {
-    root: Scene
+    root: Scene,
 }
+
+// ----------
+// VERTICES, MESHES, TEXTURES, MODELS
+// ----------
 
 pub struct Vert {
     coordinates: [i32; 3],
@@ -18,6 +26,16 @@ pub struct Mesh {
     id: u64,
     verts: Vec<Vert>,
     textures: Vec<Texture>,
+}
+
+impl Mesh {
+    pub fn new(_id: u64) -> Self {
+        Self {
+            id: _id,
+            verts: vec![],
+            textures: vec![],
+        }
+    }
 }
 
 pub struct Model {

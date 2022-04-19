@@ -19,5 +19,6 @@ fn vs_main(
 
 [[stage(fragment)]]
 fn fs_main(in: VertexOutput) -> [[location(0)]] vec4<f32> {
+    // mostly red, some green, little blue, so kinda red-yellowish
     return vec4<f32>(0.3, 0.2, 0.1, 1.0);
 }
