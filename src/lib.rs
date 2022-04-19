@@ -3,6 +3,7 @@ pub mod graphics;
 pub mod math;
 pub mod scene;
 pub mod game;
+pub mod window;
 
 // ----------
 // Terraformer3D Main
