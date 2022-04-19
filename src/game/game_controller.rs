@@ -1,26 +1,52 @@
-use super::DELTA_TIME;
 use super::entity::Entity;
 
 pub struct GameController {
-    observed_entities: Vec<Entity>,
+    entities: Vec<Entity>,
+    // time elapsed since starting the game
+    time_since_game_start: f32,
+}
+
+// useful macro
+
+// fn cmp( a1: &A, a2: &A ) -> bool { a1 as *const _ == a2 as *const _ }
+macro_rules! cmp_ref {
+    ($a:expr,$b:expr) => {
+        $a as *const _ == $b as *const _
+    };
 }
 
 impl GameController {
     pub fn new() -> Self {
         Self {
-            observed_entities: vec![Entity {}],
+            entities: vec![],
+            time_since_game_start: 0.0,
         }
     }
 
-    pub fn get_delta_time() {
-        DELTA_TIME.try_lock();
-        // DELTA_TIME.get_mut().unwrap()
+    pub fn tick(&mut self, dt: f32) {
+        self.time_since_game_start += dt;
+
+        // TODO: update all the entity states, collisions, new positions and mvp transforms, frontend
     }
+
+    // attach game controller as a listener to an entity's state
+    pub fn add_entity(&mut self, entity: Entity) {
+        self.entities.push(entity);
+    }
+
+    // remove an entity, e.g. it died or went out of bounds for game logic to care about
+    pub fn remove_entity(&mut self, entity: &mut Entity) {
+        // retain anything that matches the preposition
+        self.entities.retain_mut(|e| e.id() != entity.id());
+    }
+
+    // frontend update based on new backend info
+    pub fn update_view(&self) {}
 }
 
-// attach game controller as a listener to an entity's state
-fn listen_to(entity: &Entity) {}
-
-// should be updated on every tick. No it doesnt take that much cpu/gpu
-// just update it, even if nothing changes. If nothing changes then GPU wont need to completely re-render/load new assets and render a new scene
-fn update_view() {}
+#[test]
+fn test_tick() {
+    let mut game_controller = GameController::new();
+    // test that tick works properly
+    game_controller.tick(100.0);
+}

@@ -1,5 +1,11 @@
 pub struct Scene;
 
+// a way to propagate transformation logic to subscenes/nodes
+// i.e. solar system architecture
+pub struct SceneGraph {
+    root: Scene
+}
+
 pub struct Vert {
     coordinates: [i32; 3],
     normals: [i32; 3],

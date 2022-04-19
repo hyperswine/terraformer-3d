@@ -8,4 +8,16 @@ pub trait Displaceable {
 }
 
 // an entity has a position
-pub struct Entity {}
+pub struct Entity {
+    id: u64,
+}
+
+impl Entity {
+    pub fn new(_id: u64) -> Self {
+        Self { id: _id }
+    }
+
+    pub fn id(&mut self) -> u64 {
+        self.id
+    }
+}
