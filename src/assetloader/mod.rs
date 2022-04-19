@@ -18,6 +18,17 @@ pub fn load_obj(id: u64, path: &str) -> Mesh {
 
 // terraformer has first class support for blender modules
 fn load_blend(id: u64, path: &str) -> Mesh {
+    use blend::Blend;
+
+    let obj = Blend::from_path("assets/models/Character1.blend");
+
+    for _obj in obj.get_by_code(*b"OB") {
+        let loc = _obj.get_f32_vec("loc");
+        let name = _obj.get("id").get_string("name");
+
+        println!("\"{}\" at {:?}", name, loc);
+    }
+
     Mesh::new(id)
 }
 

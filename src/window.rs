@@ -3,7 +3,7 @@ use winit::{
     window::Window,
 };
 
-fn load_window() -> (Window, EventLoop<()>) {
+pub fn load_window() -> (Window, EventLoop<()>) {
     let event_loop = EventLoop::new();
     let window = winit::window::Window::new(&event_loop).unwrap();
 
