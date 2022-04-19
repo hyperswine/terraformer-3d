@@ -5,7 +5,7 @@
 // Then makes a render call using the new state
 
 use super::DELTA_TIME;
-use crate::entity::Entity;
+use super::entity::Entity;
 
 pub struct GameController {
     observed_entities: Vec<Entity>,

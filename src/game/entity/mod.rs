@@ -1,6 +1,5 @@
-pub(crate) mod character;
-pub(crate) mod groups;
-pub(crate) mod worldobject;
+pub mod character;
+pub mod worldobject;
 
 // TODO: remove the stuff in character and use Engagabable/Combatant instead
 pub trait Combatant {

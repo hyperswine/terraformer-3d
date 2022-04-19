@@ -1,6 +1,6 @@
-pub mod building;
 pub mod decoration;
 
+// an interactable worldobject
 pub struct WorldObject;
 
 impl WorldObject {

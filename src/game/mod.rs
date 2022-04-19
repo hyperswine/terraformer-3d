@@ -1,4 +1,5 @@
 pub mod game_controller;
+pub mod entity;
 
 use lazy_static::lazy_static;
 use std::sync::Mutex;
