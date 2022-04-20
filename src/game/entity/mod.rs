@@ -41,3 +41,6 @@ impl Entity {
 //     f: &'boot str,
 //     s: &'boot str,
 // }
+// MOSTLY when:
+// - returning references from functions, esp if youre taking in one
+// - creating structs with references
