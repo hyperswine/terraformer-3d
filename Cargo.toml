@@ -24,3 +24,4 @@ obj = "0.10.2"
 serde = "1.0"
 serde_yaml = "0.8"
 glam = "0.20.5"
+dioxus = { version = "0.2.3", features = ["desktop"] }

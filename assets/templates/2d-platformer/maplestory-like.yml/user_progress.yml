@@ -1,0 +1,31 @@
+# MAPLESTORY REAL-TIME BASED. Kind of like any MMORPG with quests, jobs, grind, raids, RNG enhancement and gacha
+
+# JOBS and STATS:
+# Level + XP
+# Job
+#   skills
+#     - 3 snails
+#       target: 1
+#       dmg: 40
+#       mp_cost: 10
+# Stats
+#   HP
+#   MP / Energy
+#   Offensive
+#   Defensive
+#   StatusResist
+
+# MOBS:
+# All mobs
+
+# NPCS:
+# All npcs
+
+# QUESTS:
+# All quests
+# Unlocked quests
+# Doable quests (by level)
+# Completed quests
+
+# in mobs/
+# in npcs/

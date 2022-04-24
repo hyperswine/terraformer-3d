@@ -2,7 +2,7 @@
 
 A 3D game engine but completely in rust/std/cargo.
 
-- Use as either a library (lib.rs) or an executable (iced main.rs)
+- Use either as a library project management system + libraries (lib.rs) or an GUI game engine system (dioxus main.rs) with everything in the libraries as well as extras
 
 ## Key features
 

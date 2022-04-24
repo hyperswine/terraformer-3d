@@ -1,0 +1,25 @@
+# BACKYARD MONSTERS TOP-DOWN 3D REAL TIME. Bases, single global map, local generated maps, invades and defenses, units, upgrades, buildings, placement, base design and management, dailies, energy
+
+# Also requires great timekeeping for upgrades
+# Uses UNIX timestamps
+
+# play tutorial at level 0
+level: 0
+XP: 0
+
+# in units/
+units:
+
+# in buildings/
+buildings:
+
+# types of building states
+# When damaged, prob cant do stuff, but you can still do if you specify so
+# damaged
+#   time_taken_until_healed
+# active
+#   producing
+#     target: "Gabriel"
+# idle
+player_base:
+  # list of buildings and their coords, level, what they're producing or doing rn

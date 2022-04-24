@@ -1,0 +1,14 @@
+# HEARTHSTONE, YUGIOH, MAGIC. Turn based top down hand-type and board type game
+#
+# Deck
+# Owned Cards
+# Unlocked/Discovered Cards
+# Level + XP
+
+# Decks in /deck
+# All cards in /cards
+# can then specify which cards the user has unlocked
+# in unlocked:
+
+unlocked_cards:
+  - "Gabriel"

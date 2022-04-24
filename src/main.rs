@@ -134,7 +134,7 @@ async fn run(event_loop: EventLoop<()>, window: Window) {
     });
 }
 
-fn main() {
+fn render() {
     let event_loop = EventLoop::new();
     let window = winit::window::Window::new(&event_loop).unwrap();
     #[cfg(not(target_arch = "wasm32"))]
@@ -159,4 +159,18 @@ fn main() {
             .expect("couldn't append canvas to document body");
         wasm_bindgen_futures::spawn_local(run(event_loop, window));
     }
+}
+
+use dioxus::prelude::*;
+
+fn main() {
+    dioxus::desktop::launch(app);
+}
+
+fn app(cx: Scope) -> Element {
+    cx.render(rsx! {
+        div {
+            "hello world!"
+        }
+    })
 }

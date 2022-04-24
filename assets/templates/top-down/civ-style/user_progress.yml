@@ -1,0 +1,25 @@
+# Top down turn based
+#
+# save_states
+#   current_turn
+#   civs
+#     australia
+#       civ_state, abilities, their state etc.
+#   war_status_bidirectionalgraph
+#     ["australia": "new zealand", "australia", "israel"]
+# civ_state
+#   cities
+#     - city_name, location (x,y), population and stats, current production etc.
+#
+
+save_states:
+  - name: "SAVE_0"
+    current_turn: 1
+    civs:
+      # find the civ's stats and values (default) in civs/
+      self: "australia"
+      allies:
+      enemies:
+        - "new zealand"
+        - "israel"
+    

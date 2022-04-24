@@ -1,0 +1,32 @@
+# JRPG TURN BASED
+#
+# Global Level + XP
+# Team members + Owned Pets, e.g. pokemon or persons
+#   Level + XP
+#   Abilities
+#   Skills / Spells
+# Overworld + Underworld Maps
+#   Level
+#     current_position_3d / save location
+# MISC:
+# Calendar system
+#   Year, Month, Day
+#   Event
+# Socials
+#   social link skills
+
+global_level: 0
+XP: 0
+
+pets:
+  # free to give it a different name other than a pet, e.g. "Persona"
+  name: "Unit"
+  inventory:
+    - pet_name: "Gabriel"
+  storage:
+    - pet_name: "Michael"
+
+team_members:
+  - name: "Morgana"
+    abilities:
+      - "annoying"

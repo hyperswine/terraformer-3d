@@ -1,0 +1,28 @@
+# Australian Empire
+
+# HOOKS
+
+# Note: prob better to do specify a hook then the effect
+# instead of the effect and the hook associated with it
+# e.g.
+# each_turn:
+#   effect
+
+# Ability types
+# boost stats on some target
+# destroy or create a unit or object
+
+# Trigger types
+# each_turn, next_turn
+# destroy a unit or object, e.g. city, tile
+# create a unit or object, e.g. city, tile
+
+on_war_declaration:
+  target: "self"
+  declaree: "any"
+  effect:
+    boost:
+      production:
+        target: "city"
+        number: "all"
+        value: "100%"
