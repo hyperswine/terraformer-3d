@@ -1,15 +1,23 @@
+// SUBMODULES
 pub mod character;
 pub mod worldobject;
 
+use crate::scene::Model;
 use glam::Vec3;
 
-use crate::scene::Model;
+// -----------
+// ENTITY FUNCTIONALTIY
+// -----------
 
 // Most things should be displaceable, except maybe intrinsic map decors
 // user decors, buildings and characters all displaceable
 pub trait Displaceable {
     fn move_to(&mut self, coords: Vec3) -> Vec3;
 }
+
+// -----------
+// ENTITY 3D
+// -----------
 
 // assumed 3D world. For 2D chars, use entity2d instead of entity
 // an entity has a position
@@ -33,7 +41,7 @@ impl Displaceable for Entity {
 }
 
 impl Entity {
-    pub fn dnew(id: u64, position: Vec3, bound_model: Model) -> Self {
+    pub fn new(id: u64, position: Vec3, bound_model: Model) -> Self {
         Self {
             id,
             position,
@@ -59,3 +67,20 @@ impl Entity {
 // MOSTLY when:
 // - returning references from functions, esp if youre taking in one
 // - creating structs with references
+
+// -----------
+// TEST
+// -----------
+
+#[test]
+fn test_entity_creation() {
+    let entity = Entity::new(0, Vec3::new(0.0, 0.0, 0.0), Model::new_dummy());
+}
+
+#[test]
+fn test_entity_methods() {
+    let mut entity = Entity::new(0, Vec3::new(0.0, 0.0, 0.0), Model::new_dummy());
+
+    assert_eq!(entity.id, 0);
+    assert_eq!(entity.position(), &mut Vec3::new(0.0, 0.0, 0.0));
+}

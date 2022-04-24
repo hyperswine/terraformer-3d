@@ -44,6 +44,19 @@ pub struct Model {
     meshes: Vec<Mesh>,
 }
 
+impl Model {
+    pub fn new(id: u64, meshes: Vec<Mesh>) -> Self {
+        Self { id, meshes }
+    }
+
+    pub fn new_dummy() -> Self {
+        Self {
+            id: 0,
+            meshes: vec![],
+        }
+    }
+}
+
 // can either be applied to a model/mesh aka Object3D or painted directly
 pub struct Texture {
     // given by vulkan
