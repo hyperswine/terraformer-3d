@@ -2,8 +2,8 @@
 // Load Game State
 // ----------
 
+use super::game_controller::RealTimeGameController;
 use crate::log_screen;
-use super::game_controller::GameController;
 use std::collections::BTreeMap;
 
 pub fn load_yml(path: &str) -> serde_yaml::Value {
@@ -18,7 +18,7 @@ pub fn create_window() {
     let res = crate::window::load_window();
 
     // load game controller
-    let game_controller = GameController::new();
+    let game_controller = RealTimeGameController::new();
 
     // pass game_controller to function calls like menu_state start_game and game_loop
     menu_state(game_controller);
@@ -36,7 +36,7 @@ enum MenuOption {
 // A game should boot pretty much immediately
 // Only [start_game] should load most of the models into RAM, though which ones
 // can be dictated by the current map and level and in menu_load.yml
-pub fn menu_state(game_controller: GameController) {
+pub fn menu_state(game_controller: RealTimeGameController) {
     // make sure to do these lazily and only once!
     // TODO: encapsulate into a single function and call it lazily
 
@@ -63,13 +63,16 @@ pub fn menu_state(game_controller: GameController) {
     }
 }
 
+// NOTE: depending on the type of game config
+// call the right function to load the specific yml states and configs. And models
+
 // ----------
 // Game Loop
 // ----------
 
 // Load game settings from assets/settings. Usually loads as much as possible, though for bigger games theres no need to load stuff outside of your current level/nearby levels. These can be specified in assets/settings/load_state.yml
 // which should be updated according (automatically kinda) to the current level and maps and entities. Games built with terraformer should mostly be pick up and play kinda thing like SMT and BY Monsters so I dont really like loading on the fly
-pub fn start_game(game_controller: GameController) {
+pub fn start_game(game_controller: RealTimeGameController) {
     // TODO: encapsulate loading into a single function and call it lazily
 
     let f = std::fs::File::open("assets/settings/global_settings.yml").unwrap();
