@@ -1,13 +1,37 @@
 // ----------
+// SUB MODULES
+// ----------
+
+pub mod animator;
+pub mod camera;
+
+// ----------
 // SCENE
 // ----------
 
-pub struct Scene;
+// A scene should contain a single model. Aka be 'bound' to a model
+// And any sub models are sub scenes
+pub struct Scene {
+    model: Model,
+    children: Vec<Scene>,
+}
+
+impl Scene {
+    pub fn new(model: Model, children: Vec<Scene>) -> Self {
+        Self { model, children }
+    }
+}
 
 // a way to propagate transformation and animation and mechanism logic to subscenes/nodes
 // i.e. solar system architecture
 pub struct SceneGraph {
     root: Scene,
+}
+
+impl SceneGraph {
+    pub fn new(root: Scene) -> Self {
+        Self { root }
+    }
 }
 
 // ----------
@@ -64,7 +88,10 @@ pub struct Texture {
 }
 
 // ----------
-// SUB MODULES
+// TEST
 // ----------
 
-pub mod camera;
+#[test]
+fn test_scene_creation() {
+    let scene = Scene::new(Model::new_dummy(), vec![]);
+}
