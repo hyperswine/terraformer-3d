@@ -49,3 +49,9 @@ pub struct Texture {
     // given by vulkan
     t_id: u64,
 }
+
+// ----------
+// SUB MODULES
+// ----------
+
+pub mod camera;

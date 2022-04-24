@@ -1,26 +1,43 @@
 pub mod character;
 pub mod worldobject;
 
+use glam::Vec3;
+
+use crate::scene::Model;
+
 // Most things should be displaceable, except maybe intrinsic map decors
 // user decors, buildings and characters all displaceable
 pub trait Displaceable {
-    fn move_to(&self, coords: (f32, f32));
+    fn move_to(&mut self, coords: Vec3) -> Vec3;
 }
 
-// assumed 3D world
-type Pos3D = [f32; 3];
-
+// assumed 3D world. For 2D chars, use entity2d instead of entity
 // an entity has a position
+// An entity should have a bound model, whether it be 3D or 2D
+// if 2D, can use Entity2D or just a plane
 pub struct Entity {
     id: u64,
-    position: Pos3D,
+    position: Vec3,
+    bound_model: Model,
+}
+
+impl Displaceable for Entity {
+    // might not be possible to move to the new pos due to collision
+    // so after collision calcs, return the actual pos of the entity
+    fn move_to(&mut self, coords: Vec3) -> Vec3 {
+        // TODO: calc collisions
+        self.position = coords;
+        // return new position
+        coords
+    }
 }
 
 impl Entity {
-    pub fn new(_id: u64) -> Self {
+    pub fn dnew(id: u64, position: Vec3, bound_model: Model) -> Self {
         Self {
-            id: _id,
-            position: [0.0; 3],
+            id,
+            position,
+            bound_model,
         }
     }
 
@@ -28,11 +45,9 @@ impl Entity {
         self.id
     }
 
-    pub fn position(&mut self) -> &mut Pos3D {
+    pub fn position(&mut self) -> &mut Vec3 {
         &mut self.position
     }
-
-
 }
 
 // HOW LIFETIME WORKS

@@ -1,5 +1,7 @@
 use super::entity::Entity;
 
+// Created when the user clicks on the game executable
+// Should be one of the first things started
 pub struct GameController {
     entities: Vec<Entity>,
     // time elapsed since starting the game
