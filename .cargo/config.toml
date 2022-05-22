@@ -1,0 +1,4 @@
+[alias]
+blib = "build --lib"
+bapp = "build --bin terraformer3d"
+rapp = "run --bin terraformer3d"
