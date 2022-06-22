@@ -2,10 +2,12 @@
 // Cameras
 // ----------
 
+// All you need is a current pos and the facing direction. Which is usually vec2d or vec3d
+// Then you create a model matrix from that. 2d or 3d doesnt matter. Though I guess its nice to have presets
+
 use glam::{Vec2, Vec4};
 
-// A basic camera to pan over a texture/2D scene
-// No need for any complex transformations, just gimme the coords of each corner
+// A basic camera to pan over a texture/2D scene. No need for any complex transformations, just gimme the coords of each corner
 pub struct Camera2D {
     curr_position: Vec2,
     // usually used for level start position

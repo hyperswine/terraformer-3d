@@ -1,6 +1,6 @@
-// ---------
+// -------------------
 // COLLISION DETECTION
-// ---------
+// -------------------
 
 #[derive(Debug, Clone, Copy, PartialEq, PartialOrd)]
 pub struct BoundingBox3D {
@@ -8,8 +8,6 @@ pub struct BoundingBox3D {
     min_axes: (f32, f32, f32),
     max_axes: (f32, f32, f32),
 }
-
-use std::num;
 
 use itertools::Itertools;
 
@@ -33,11 +31,11 @@ pub fn check_collision(objects: &[BoundingBox3D]) {
     }
 }
 
-// ---------
+// -------------------
 // TRAJECTORY CALCS
-// ---------
+// -------------------
 
-// earth gravitational accel
+/// Earth gravitational acceleration
 const GRAVITATIONAL_ACCEL: f32 = 9.81;
 const G_VEC: Vec3D = Vec3D::new(0.0, -GRAVITATIONAL_ACCEL, 0.0);
 

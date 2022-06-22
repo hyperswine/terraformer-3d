@@ -1,16 +1,17 @@
-// ----------
+// --------------------
 // SUB MODULES
-// ----------
+// --------------------
 
 pub mod animator;
 pub mod camera;
 
-// ----------
+// --------------------
 // SCENE
-// ----------
+// --------------------
 
-// A scene should contain a single model. Aka be 'bound' to a model
-// And any sub models are sub scenes
+// Basically a tree of SceneNode that represents Entities like Players, NPCs, Enemies, World Objects, etc
+
+/// A scene should contain a single model. Aka be 'bound' to a model. And any sub models are sub scenes
 pub struct Scene {
     model: Model,
     children: Vec<Scene>,
@@ -22,8 +23,7 @@ impl Scene {
     }
 }
 
-// a way to propagate transformation and animation and mechanism logic to subscenes/nodes
-// i.e. solar system architecture
+/// A way to propagate transformation and animation and mechanism logic to subscenes/nodes. I.e. solar system architecture
 pub struct SceneGraph {
     root: Scene,
 }
@@ -34,9 +34,9 @@ impl SceneGraph {
     }
 }
 
-// ----------
+// --------------------
 // VERTICES, MESHES, TEXTURES, MODELS
-// ----------
+// --------------------
 
 pub struct Vert {
     coordinates: [i32; 3],
@@ -63,7 +63,7 @@ impl Mesh {
 }
 
 pub struct Model {
-    // if loading twice, destroy an existing version
+    // if loading twice, should destroy an existing version. But IDK, it should be up to the dev to not be stupid
     id: u64,
     meshes: Vec<Mesh>,
 }
@@ -81,15 +81,15 @@ impl Model {
     }
 }
 
-// can either be applied to a model/mesh aka Object3D or painted directly
+/// Can either be applied to a model/mesh aka Object3D or painted directly
 pub struct Texture {
     // given by vulkan
     t_id: u64,
 }
 
-// ----------
+// --------------------
 // TEST
-// ----------
+// --------------------
 
 #[test]
 fn test_scene_creation() {
