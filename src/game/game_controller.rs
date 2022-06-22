@@ -1,20 +1,11 @@
-use super::entity::Entity;
-
-// useful macro
-
-// fn cmp( a1: &A, a2: &A ) -> bool { a1 as *const _ == a2 as *const _ }
-macro_rules! cmp_ref {
-    ($a:expr,$b:expr) => {
-        $a as *const _ == $b as *const _
-    };
-}
-
 // ------------------
 // REAL TIME GAME CONTROLLER
 // ------------------
 
-// Created when the user clicks on the game executable
-// Should be one of the first things started
+use crate::entity::Entity;
+
+// Created when the user clicks on the game executable. Should be one of the first things started
+// Most games should use a RT game controller, as we dont want to wait for the user to make an action first
 pub struct RealTimeGameController {
     entities: Vec<Entity>,
     // time elapsed since starting the game
@@ -55,7 +46,12 @@ impl RealTimeGameController {
 // TURN BASED GAME CONTROLLER
 // ------------------
 
-// NOTE: embeddable within a real time game controller
+// The problem is how it fits into entity component?
+
+// Could be good to embed in a turn based combat situation. Where you're mostly just waiting
+// And the base controller is still real time
+
+// ? embeddable within a real time game controller
 // e.g. an overworld real time vs in battle turn based
 
 // for games where the main logic is mostly turn based

@@ -7,6 +7,7 @@ pub mod math;
 pub mod scene;
 pub mod settings;
 pub mod window;
+pub mod entity;
 
 // ----------
 // Terraformer3D Global States
@@ -36,7 +37,7 @@ impl Terraformer3D {
             keybindings: keybindings.to_string(),
         }
     }
-    
+
     // TODO: wrappers around game::loader
 }
 
@@ -53,6 +54,18 @@ pub fn get_current_logger_context() -> u32 {
 macro_rules! log_screen {
     ($a:expr) => {
         let log_context = crate::get_current_logger_context();
+    };
+}
+
+// ----------
+// MACROS
+// ----------
+
+// fn cmp( a1: &A, a2: &A ) -> bool { a1 as *const _ == a2 as *const _ }
+#[macro_export]
+macro_rules! cmp_ref {
+    ($a:expr,$b:expr) => {
+        $a as *const _ == $b as *const _
     };
 }
 
