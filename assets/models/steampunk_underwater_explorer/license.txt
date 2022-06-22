@@ -1,0 +1,11 @@
+Model Information:
+* title:	Steampunk underwater explorer
+* source:	https://sketchfab.com/3d-models/steampunk-underwater-explorer-127471a23e0f4790914b13b9052c4912
+* author:	Andrius Beconis (https://sketchfab.com/abeconis)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Steampunk underwater explorer" (https://sketchfab.com/3d-models/steampunk-underwater-explorer-127471a23e0f4790914b13b9052c4912) by Andrius Beconis (https://sketchfab.com/abeconis) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

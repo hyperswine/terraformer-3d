@@ -1,0 +1,11 @@
+Model Information:
+* title:	mecH
+* source:	https://sketchfab.com/3d-models/mech-90b0d96da3ad400faea5d33fe6613a2c
+* author:	luyssport (https://sketchfab.com/luyssport)
+
+Model License:
+* license type:	CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
+* requirements:	Author must be credited. No commercial use.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "mecH" (https://sketchfab.com/3d-models/mech-90b0d96da3ad400faea5d33fe6613a2c) by luyssport (https://sketchfab.com/luyssport) licensed under CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
