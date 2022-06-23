@@ -12,10 +12,11 @@ use glam::Vec3;
 
 pub struct Entity {
     id: u64,
-    systems: Vec<System>,
+    components: Vec<Component>
 }
 
 /// Resolve systems at runtime per tick, collisions, additions and removals
+/// Actually I was right before. Just have a list of entities in the GameController cause thats all you really need. Or maybe a scene or something?
 pub struct EntityManager {
     entities: Vec<Entity>,
 }
@@ -44,20 +45,18 @@ impl EntityManager {
 }
 
 // -----------------------
-// SYSTEMS
+// COMPONENT
 // -----------------------
 
-// Actually these should be components
-// The systems are the methods that act on the components of an entity. But should maybe be separate from the components?
+// Just structs with information
 
-pub enum System {
-    /// Movable (translatable)
-    Displaceable2D(DisplaceableDetails<(f32, f32)>),
-    Openable(OpenableDetails),
-    Destroyable(DestroyableDetails),
+// In rust, maybe 'Component' is generic somehow?
+// but it has to be the same type still. Like maybe just have a Component Struct that is generic
+
+pub struct Component<Field> {
+    field: Field
 }
 
-/// A useful detail for many things like doors, cabinets, etc
 pub struct OpenableDetails {
     opened: bool,
 }
@@ -67,10 +66,14 @@ pub struct DestroyableDetails {
     intact: bool,
 }
 
-// Maybe make it a method of the System::
-pub struct DisplaceableDetails<Position: Clone> {
-    current_position: Position,
-}
+// -----------------------
+// SYSTEMS
+// -----------------------
+
+// A collection of functions that operate on entities that are registered in the system
+// and have the system's required component types
+
+fn gravity(entities: &[Entity]) {}
 
 impl<Position: Clone> DisplaceableDetails<Position> {
     pub fn new(current_position: Position) -> Self {
@@ -87,15 +90,6 @@ impl<Position: Clone> DisplaceableDetails<Position> {
     }
 }
 
-impl Entity {
-    pub fn new(id: u64, systems: Vec<System>) -> Self {
-        Self { id, systems }
-    }
-
-    pub fn id(&mut self) -> u64 {
-        self.id
-    }
-}
 
 // -----------------------
 // TEST
