@@ -3,7 +3,9 @@
 // -----------------------
 
 // PRESETS
-pub mod presets;
+pub mod entity_presets;
+pub mod component_presets;
+pub mod system_presets;
 
 // -----------------------
 // GENERIC ENTITY
@@ -28,9 +30,12 @@ impl Entity {
 // For systems bind to and modify
 
 pub trait Component {
-    type Data;
-    fn update(&mut self, new_data: Self::Data);
+    fn bind_to_entities(&mut self, entity: &[Entity]);
 }
+
+// Maybe idk. We want to also reuse component instances maybe?
+// Just have a list of components in the Scene which are bound to a list of entities
+// Maybe an ADT of {component: [id]} pairs
 
 // -----------------------
 // SYSTEM
@@ -46,7 +51,8 @@ pub trait Component {
 //   input systems -> AI systems -> physics systems -> graphics systems
 
 pub trait System {
-    // fn update(components: &[Component]);
+    fn update(&mut self);
+    fn bind_component(&mut self, component: &dyn Component);
 }
 
 // "Systems" dont really exist. All you do is register a function with SceneSystems or GlobalSystems
