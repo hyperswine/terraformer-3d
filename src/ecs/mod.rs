@@ -2,10 +2,13 @@
 // ENTITY COMPONENT SYSTEM
 // -----------------------
 
-// PRESETS
-pub mod entity_presets;
+// BUILTIN PRESETS
 pub mod component_presets;
+pub mod entity_presets;
 pub mod system_presets;
+
+// ? Whatabout library presets??
+// Best to use a stack based vector
 
 // -----------------------
 // GENERIC ENTITY
@@ -29,7 +32,11 @@ impl Entity {
 // Custom structs with information that implements the Component Trait
 // For systems bind to and modify
 
-pub trait Component {
+pub struct Component {
+    entities: Vec<*mut Entity>,
+}
+
+pub trait ComponentUpdate {
     fn bind_to_entities(&mut self, entity: &[Entity]);
 }
 
@@ -41,6 +48,8 @@ pub trait Component {
 // SYSTEM
 // -----------------------
 
+// Systems should use new component values updated by other systems, which are updated by Scripted Systems or Dynamic Systems
+
 // First class function objects with a set of 'Forces' that change the states of the components bound to it
 // A force is some constant or script that is applied on the components in some "Manner"
 // A manner is a set of imperative descriptions that state how the forces should be applied to the constants based on the current constant parameters
@@ -50,9 +59,23 @@ pub trait Component {
 // Order is the key and you should order like:
 //   input systems -> AI systems -> physics systems -> graphics systems
 
-pub trait System {
+pub struct System {
+    components: Vec<*mut Component>,
+}
+
+impl System {
+    pub fn new(components: Vec<*mut Component>) -> Self {
+        Self { components }
+    }
+
+    pub fn get_components(&mut self) -> &[*mut Component] {
+        &self.components
+    }
+}
+
+pub trait SystemUpdate {
     fn update(&mut self);
-    fn bind_component(&mut self, component: &dyn Component);
+    fn bind_component(&mut self, component: *mut Component);
 }
 
 // "Systems" dont really exist. All you do is register a function with SceneSystems or GlobalSystems
