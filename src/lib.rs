@@ -13,8 +13,7 @@ pub mod ecs;
 // Terraformer3D Global States
 // ----------
 
-// stores common things across game engine states
-// global game engine states like settings and preferences
+/// Stores common things across game engine states. Global game engine states like settings and preferences
 pub struct Terraformer3D {
     user_save_state: String,
     graphics_settings: String,
@@ -61,7 +60,7 @@ macro_rules! log_screen {
 // MACROS
 // ----------
 
-// fn cmp( a1: &A, a2: &A ) -> bool { a1 as *const _ == a2 as *const _ }
+/// Compare two references that impl PartialEq + Eq
 #[macro_export]
 macro_rules! cmp_ref {
     ($a:expr,$b:expr) => {

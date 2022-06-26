@@ -1,12 +1,8 @@
-// For controlling graphics
-
-pub mod device;
-
-// Should only really have 1 device to RT in
-
 // --------------------
 // VERTICES, MESHES, TEXTURES, MODELS
 // --------------------
+
+// Note, this is basically a bunch of graphics components and systems
 
 pub struct Vert {
     coordinates: [i32; 3],
