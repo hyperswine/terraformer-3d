@@ -7,7 +7,7 @@ pub mod math;
 pub mod scene;
 pub mod settings;
 pub mod window;
-pub mod entity;
+pub mod ecs;
 
 // ----------
 // Terraformer3D Global States

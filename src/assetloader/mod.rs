@@ -4,7 +4,7 @@
 
 use gltf::Gltf;
 
-use super::scene::{Mesh, Model, Texture, Vert};
+use crate::graphics::Mesh;
 
 // Mostly blend, gltf and obj files. Also mtl files and png files
 // And result in either a Scenegraph, Model or Texture or Animation2D
