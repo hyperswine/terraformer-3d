@@ -2,6 +2,9 @@
 // COMBATANT
 // -------------
 
+use crate::{clamp, sclamp};
+
+/// A combatant has a finite amount of hitpoints and attack damage for basic attacks
 pub struct Combatant {
     hp: f32,
     att_dmg: f32,
@@ -12,16 +15,14 @@ impl Combatant {
         Self { hp, att_dmg }
     }
 
+    // SYSTEMS SHOULD TAKE ADVANTAGE OF THESE METHODS
+
     pub fn basic_attack(&self, enemy: &mut Combatant) {
         enemy.take_dmg(self.att_dmg);
     }
 
     pub fn take_dmg(&mut self, att_dmg: f32) {
-        if self.hp - att_dmg < 0.0 {
-            self.hp = 0.0;
-        } else {
-            self.hp -= att_dmg;
-        }
+        sclamp!(self.hp, att_dmg);
     }
 
     pub fn get_hp(&self) -> f32 {
@@ -33,7 +34,7 @@ impl Combatant {
 // DMG BUFFERING
 // -------------
 
-/// BUFFERING AFTER DAMAGE (usually for real time)
+/// "Buffer" or become invincible/untargetable/uncollidable after taking damage or reviving/spawning. Good for real time combat
 pub struct Buffer {
     time: f32,
 }
@@ -56,16 +57,14 @@ enum Ailment {
 // ABILITIES
 // -------------
 
-/// You can define an entity as being a Self, Ally or Enemy in Battle
-/// Then apply the combat system to them
+/// You can define an entity as being a Self, Ally or Enemy in Battle. Then apply the combat system to them
 enum TargetType {
     SelfUnit,
     AllyUnit,
     EnemyUnit,
 }
 
-/// An ability is something with a set of values and a target
-/// The ability type and impl defines how those values affect the target
+/// An ability is something with a set of values and a target. The ability type and impl defines how those values affect the target
 struct Ability<Value, TargetHandle> {
     targets: Vec<TargetHandle>,
     value: Value,

@@ -2,6 +2,15 @@ pub mod animate;
 pub mod camera;
 pub mod collision;
 pub mod combat;
+pub mod movement;
 pub mod resource;
 pub mod useable;
-pub mod movement;
+
+// -----------------
+// TESTS
+// -----------------
+
+#[test]
+fn test_preset_1() {
+    // create a camera
+}
