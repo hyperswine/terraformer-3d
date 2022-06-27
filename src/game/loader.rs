@@ -13,9 +13,9 @@ pub fn load_yml(path: &str) -> serde_yaml::Value {
     serde_yaml::from_reader(f).unwrap()
 }
 
-// Uses wgpu windowing -> arcwm implementation
 pub fn create_window() {
-    let res = crate::window::load_window();
+    // ? Maybe use wgpu windowing -> arcwm implementation
+    // let res = crate::window::load_window();
 
     // load game controller
     let game_controller = RealTimeGameController::new();

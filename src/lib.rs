@@ -6,8 +6,9 @@ pub mod graphics;
 pub mod math;
 pub mod scene;
 pub mod settings;
-pub mod window;
 pub mod ecs;
+pub mod frontend;
+pub mod types;
 
 // ----------
 // Terraformer3D Global States

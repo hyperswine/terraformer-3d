@@ -1,6 +1,6 @@
-// ------------
+// -------------
 // COMBATANT
-// ------------
+// -------------
 
 pub struct Combatant {
     hp: f32,
@@ -8,14 +8,8 @@ pub struct Combatant {
 }
 
 impl Combatant {
-    pub fn new(
-        hp: f32,
-        att_dmg: f32,
-    ) -> Self {
-        Self {
-            hp,
-            att_dmg,
-        }
+    pub fn new(hp: f32, att_dmg: f32) -> Self {
+        Self { hp, att_dmg }
     }
 
     pub fn basic_attack(&self, enemy: &mut Combatant) {
@@ -35,9 +29,18 @@ impl Combatant {
     }
 }
 
-// ------------
-// Ailment
-// ------------
+// -------------
+// DMG BUFFERING
+// -------------
+
+/// BUFFERING AFTER DAMAGE (usually for real time)
+pub struct Buffer {
+    time: f32,
+}
+
+// -------------
+// AILMENT
+// -------------
 
 // Usual ailments. Attach to an ailment system that applies statuses each tick or turn
 enum Ailment {
@@ -49,9 +52,9 @@ enum Ailment {
     Rage,
 }
 
-// ------------
+// -------------
 // ABILITIES
-// ------------
+// -------------
 
 /// You can define an entity as being a Self, Ally or Enemy in Battle
 /// Then apply the combat system to them
@@ -68,9 +71,9 @@ struct Ability<Value, TargetHandle> {
     value: Value,
 }
 
-// ------------
+// -------------
 // TEST
-// ------------
+// -------------
 
 #[test]
 fn test_combat() {
