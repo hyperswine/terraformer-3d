@@ -2,15 +2,16 @@
 // USES
 // ---------------
 
-use glam::{Vec2, Vec3};
-
 use crate::types::VectorOps;
+use bevy_ecs::prelude::Component;
+use glam::{Vec2, Vec3};
 
 // ---------------
 // Generic Camera
 // ---------------
 
 /// A basic camera to pan over a texture or a 3D scene. Needs at least 2 axis (usually direction/bitangent and tangent)
+#[derive(Debug, Component)]
 pub struct Camera<T: VectorOps + Copy> {
     curr_position: T,
     direction: T,

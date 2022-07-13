@@ -23,6 +23,9 @@
 // 3d animations for a model or mesh should be loaded collectively
 // as a .blend
 
+use bevy_ecs::prelude::Component;
+
 // Get the animation data from Model and isolate it here
 // Use this to make changes or execute depending on game state and events
+#[derive(Debug, Component)]
 struct Animation3D {}

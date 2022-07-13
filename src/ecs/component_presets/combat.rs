@@ -2,22 +2,19 @@
 // COMBATANT
 // -------------
 
-use crate::{clamp, ecs::Component, sclamp};
+use crate::sclamp;
+use bevy_ecs::prelude::Component;
 
 /// A combatant has a finite amount of hitpoints and attack damage for basic attacks
+#[derive(Debug, Component)]
 pub struct Combatant {
-    component: Component,
     hp: f32,
     att_dmg: f32,
 }
 
 impl Combatant {
-    pub fn new(component: Component, hp: f32, att_dmg: f32) -> Self {
-        Self {
-            component,
-            hp,
-            att_dmg,
-        }
+    pub fn new(hp: f32, att_dmg: f32) -> Self {
+        Self { hp, att_dmg }
     }
 
     // SYSTEMS SHOULD TAKE ADVANTAGE OF THESE METHODS

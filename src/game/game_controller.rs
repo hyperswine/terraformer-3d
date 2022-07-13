@@ -5,7 +5,7 @@
 // MAYBE DONT NEED CONTROLLER
 // INSTEAD, a scene controller
 
-use crate::ecs::{Entity};
+// use crate::ecs::{Entity};
 
 // Created when the user clicks on the game executable. Should be one of the first things started. Most games should use a RT game controller, as we dont want to wait for the user to make an action first
 pub struct RealTimeGameController {
