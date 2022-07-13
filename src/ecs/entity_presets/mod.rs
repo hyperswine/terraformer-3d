@@ -13,7 +13,7 @@ impl Character {
         let char = Self{};
 
         // attach components
-        let combatant = Combatant::new(100.0, 0.0);
+        // let combatant = Combatant::new(100.0, 0.0);
         
 
         char

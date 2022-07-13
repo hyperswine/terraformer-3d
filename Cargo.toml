@@ -6,6 +6,9 @@ name = "terraformer3d"
 repository = "https://github.com/SpectralProject/terraformer-3d"
 version = "0.1.0"
 
+[[example]]
+name = "minesweeper3d"
+
 [dependencies]
 cgmath = "0.18"
 env_logger = "0.9"
